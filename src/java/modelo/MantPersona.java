@@ -18,7 +18,7 @@ import objetos.Persona;
 
 public class MantPersona {    
   
-    private String bd="bd_informacion";
+    private String bd="db_informacion";
     private String classfor="com.mysql.jdbc.Driver";
     private String url="jdbc:mysql://localhost/"+bd;
     private String usuario="root";

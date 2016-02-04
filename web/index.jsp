@@ -91,7 +91,7 @@
                  </td>
                  
                  <td id="editar" align="center">
-                     <a href="">
+                     <a href="Buscar?cedula=<%= personaTemp.getCedula()%>">
                          <img src="img/pencil.png" width="16" height="16"  border="0" />       
                       </a>                            
                  </td>
