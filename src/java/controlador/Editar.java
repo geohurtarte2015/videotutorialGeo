@@ -13,7 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.MantPersona;
+import modelo.Modelo;
 
 
 @WebServlet(name = "Editar", urlPatterns = {"/Editar"})
@@ -25,7 +25,7 @@ public class Editar extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
         
-            MantPersona mantPersona = new MantPersona();
+            Modelo mantPersona = new Modelo();
             String atributoCedula = String.valueOf(request.getParameter("cedula"));
             
             String cedula = atributoCedula;

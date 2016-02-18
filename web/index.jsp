@@ -1,6 +1,6 @@
 
 <%@page import="objetos.Persona"%>
-<%@page import="modelo.MantPersona"%>
+<%@page import="modelo.Modelo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -9,7 +9,7 @@
         mensaje=request.getParameter("men");
     }
 
-    MantPersona pro=new MantPersona();
+    Modelo pro=new Modelo();
 %>
 
 <!DOCTYPE html>
@@ -69,8 +69,8 @@
      
     
         <%
-         MantPersona mantPersona= new MantPersona();
-         for(Persona personaTemp: mantPersona.buscar()){ 
+         Modelo modelo= new Modelo();
+         for(Persona personaTemp: modelo.buscar()){ 
          String cedula = personaTemp.getCedula();
          %>
          <table  width="50" border="1">         

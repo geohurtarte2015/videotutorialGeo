@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import modelo.MantPersona;
+import modelo.Modelo;
 import objetos.Persona;
 
 
@@ -45,7 +45,7 @@ public class Ingreso extends HttpServlet {
       PrintWriter out = response.getWriter();
         try {
                 Persona persona= new Persona();
-                MantPersona mant = new MantPersona();
+                Modelo mant = new Modelo();
                 Part part = request.getPart("archivo");
                 persona.setImagen(part.getInputStream());
                 persona.setCedula(request.getParameter("cedula").toUpperCase());

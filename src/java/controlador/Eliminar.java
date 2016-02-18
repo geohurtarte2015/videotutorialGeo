@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.MantPersona;
+import modelo.Modelo;
 
 
 public class Eliminar extends HttpServlet {
@@ -20,7 +20,7 @@ public class Eliminar extends HttpServlet {
         PrintWriter out = response.getWriter();
         try { 
             
-        MantPersona mantPersona = new MantPersona();
+        Modelo mantPersona = new Modelo();
         
         String atributoCedula = String.valueOf(request.getParameter("cedula"));
         

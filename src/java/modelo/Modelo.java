@@ -16,7 +16,7 @@ import objetos.Persona;
 
 
 
-public class MantPersona {    
+public class Modelo {    
   
     private String bd="db_informacion";
     private String classfor="com.mysql.jdbc.Driver";
@@ -75,17 +75,23 @@ public class MantPersona {
     }
     
     
-    public Persona buscar(String cedula){
+    public Persona buscarIndividual(String cedula){
       
       Persona persona = new Persona();
         
       try{
             Class.forName(classfor);
             con=DriverManager.getConnection(url, usuario,clave);
-            String sql="select cedula,nombre,foto from datos where cedula=?";
-            pr=con.prepareStatement(sql);            
-            pr.setString(1, cedula);                  
+            String sql="SELECT * FROM DATOS WHERE CEDULA=?";       
+            pr=con.prepareStatement(sql);
+            pr.setString(1, cedula);   
             rs = pr.executeQuery();  
+            
+            while(rs.next()){          
+                persona.setCedula(rs.getString("cedula"));
+                persona.setNombre(rs.getString("nombre"));
+                persona.setImagen(rs.getBinaryStream("foto"));                   
+            }
       
         
     
@@ -295,55 +301,7 @@ public class MantPersona {
             
     }
     
-    public ArrayList<Persona> buscarN( String cedula){
-        
-        ArrayList<Persona> vecPro=new ArrayList<Persona>();
-               
-        String sql="SELECT * FROM datos where cedula="+cedula;
-        try
-        {
-            Class.forName(classfor);
-            con=DriverManager.getConnection(url, usuario,clave);  
-            pr=con.prepareStatement(sql);   
-            rs=pr.executeQuery();
-            
-            while(rs.next()){
-                Persona persona = new Persona();
-                persona.setCedula(rs.getString("cedula"));
-                persona.setNombre(rs.getString("nombre"));
-                persona.setImagen(rs.getBinaryStream("foto"));
-                vecPro.add(persona);           
-            }
-            
-            System.out.println("Muestra de datos hecha con exito!");
-            
-        }
-        catch (Exception exception){
-                        
-             exception.printStackTrace();
-        }
-        finally{
-		if(con != null)
-		{
-			try
-			{
-                                
-				con.close();
-                                rs.close();
-                                pr.close();
-                                
-			}
-			catch (Exception ignored)
-			{
-				// ignore
-			}
-				
-		}
-	}
-        
-        return vecPro;
-            
-    }
+
         
         
     

@@ -13,7 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.MantPersona;
+import modelo.Modelo;
+import objetos.Persona;
 
 
 @WebServlet(name = "Buscar", urlPatterns = {"/Buscar"})
@@ -26,14 +27,21 @@ public class Buscar extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             
-            MantPersona mantPersona = new MantPersona();
-        
+            Modelo modelo = new Modelo();
+            
+            Persona persona = new Persona();
+            
             String atributoCedula = String.valueOf(request.getParameter("cedula"));
+            
+            persona = modelo.buscarIndividual(atributoCedula);
+          
         
-            String cedula = atributoCedula;
-        
-            mantPersona.buscar(cedula);
-            response.sendRedirect("index.jsp");
+          
+            
+            
+            
+            
+            response.sendRedirect("edicion.jsp");
             
         } finally {
             out.close();

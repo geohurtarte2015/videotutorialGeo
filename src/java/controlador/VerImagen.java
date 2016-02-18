@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.MantPersona;
+import modelo.Modelo;
 import objetos.Persona;
 
 /**
@@ -27,7 +27,7 @@ public class VerImagen extends HttpServlet {
             
             response.setContentType("image/jpg");
 
-            MantPersona mantPersona = new MantPersona();
+            Modelo mantPersona = new Modelo();
   
             String ced = String.valueOf(request.getParameter("cedula"));
             String cedula = ced;
