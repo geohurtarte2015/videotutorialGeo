@@ -34,8 +34,14 @@ public class Buscar extends HttpServlet {
             String atributoCedula = String.valueOf(request.getParameter("cedula"));
             
             persona = modelo.buscarIndividual(atributoCedula);
+            
+            String nombre = persona.getNombre();
+            
           
-        
+            request.setAttribute("nombre",nombre);
+            request.setAttribute("cedula",atributoCedula);
+            
+            request.getRequestDispatcher("edicion.jsp").forward(request, response);
           
             
             
