@@ -151,7 +151,7 @@ public class Modelo {
     }
     
     public void editar( Persona persona){
-              String sql="Update datos set nombre=?, foto=? where cedula=?";
+              String sql="Update datos set nombre=?,cedula=?  where cedula=?";
         try
         {
             Class.forName(classfor);
@@ -159,7 +159,7 @@ public class Modelo {
             pr=con.prepareStatement(sql);            
             
             pr.setString(1,persona.getNombre()); 
-            pr.setBlob(2,persona.getImagen()); 
+            pr.setString(2,persona.getCedula());  
             pr.setString(3,persona.getCedula());            
           
             if(pr.executeUpdate()==1){

@@ -44,9 +44,6 @@ public class Buscar extends HttpServlet {
             request.getRequestDispatcher("edicion.jsp").forward(request, response);
           
             
-            
-            
-            
             response.sendRedirect("edicion.jsp");
             
         } finally {

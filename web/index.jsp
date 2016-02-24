@@ -15,16 +15,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script language="JavaScript" src ="script.js"> </script>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+          <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+          <script language="JavaScript" src ="script.js"> </script>
         <title>JSP Page</title>
     </head>
     <body>
         
         
         <form action="Ingreso" method="post" enctype="multipart/form-data">
-        <table border="1">
-               <tr bgcolor="#2E237C" style="color: #MM0023; font-weight: bold;">
+        <table class="table" border="1">
+               <tr bgcolor="#2E237C" style="color: white; font-weight: bold;">
                 <td colspan="2" align="center">
                     <h1>Ingresar a la base de datos</h1>
                 </td>   
@@ -48,18 +52,19 @@
    
             <tr><td>Archivo</td>
                 <td colspan="2" align="left"> 
-               <input type="file" value="" name="archivo" >
+               <input type="file"  value="" name="archivo" >
                </td>
                 
             </tr>
           
             <tr><td>Ingresar</td>
-             <td><input type="submit" value="ingreso" name="Ingreso"  onClick="location.href='index.jsp'"></td></tr>           
+             <td><input type="submit" value="ingreso" name="Ingreso" class="btn btn-info" onClick="location.href='index.jsp'"></td></tr>           
              
              <tr>
                     <td colspan="2" align="center"><%=mensaje%></td>
              </tr>
-                
+             
+            
                 
         </table>
         </form>
@@ -68,38 +73,47 @@
         
      
     
-        <%
-         Modelo modelo= new Modelo();
-         for(Persona personaTemp: modelo.buscar()){ 
-         String cedula = personaTemp.getCedula();
-         %>
-         <table  width="50" border="1">         
+        
+         <table border="1" style="width:30%">         
+             <thead>
+                 <tr>
+                     <th>Cedula</th>
+                     <th>Nombre</th>
+                   
+                 </tr>
+             </thead>
+            <tbody>
+            <%
+                Modelo modelo= new Modelo();
+                for(Persona personaTemp: modelo.buscar()){ 
+                String cedula = personaTemp.getCedula();
+            %>    
+            <tr>
+                <td id="cedula"   align="left"><%= cedula%></td>
+                <td id="persona"   width="35"  height="35"  align="left"><%= personaTemp.getNombre()%></td>
+                 
+                <td id="imagen"  style="width: 25px; text-align: center;">
+                     <a href="VerImagen?cedula=<%= personaTemp.getCedula()%>">
+                        <img src="img/lupa.png" width="16" height="16"  border="0" /> 
+                     </a>    
+                 </td>
              
-                 <td id="cedula"   align="left"><%= cedula%></td>
-                 <td id="persona"   width="35"  height="35"  align="left"><%= personaTemp.getNombre()%></td>
-                 
-                 <td id="imagen"  align="center">
-                 <a href="VerImagen?cedula=<%= personaTemp.getCedula()%>">
-                    <img src="img/lupa.png" width="16" height="16"  border="0" /> 
-                 </a>     
-                  </td>
-                 
-                 <td id="eliminar" align="center">
+                <td id="eliminar" style="width: 25px; text-align: center;">
                      <a href="Eliminar?cedula=<%= personaTemp.getCedula()%>">
-                         <img src="img/eliminar.png" width="16" height="16"  border="0" />       
-                      </a>                            
-                 </td>
+                        <img src="img/eliminar.png" width="16" height="16"  border="0" />       
+                     </a>                            
+                </td>
                  
-                 <td id="editar" align="center">
+                <td   id="editar" style="width: 25px; text-align: center;">
                      <a href="Buscar?cedula=<%= personaTemp.getCedula()%>">
-                         <img src="img/pencil.png" width="16" height="16"  border="0" />       
-                      </a>                            
-                 </td>
-                
-                 
-             </tr>  
+                        <img  src="img/pencil.png" width="16" height="16"  border="0" />       
+                     </a>                            
+                </td>
+                <%}%>
+            </tr>
+            </tbody>  
          </table>
-         <%}%>
+         
            
      
          <br>
