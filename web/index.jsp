@@ -73,8 +73,8 @@
         
      
     
-        
-         <table border="1" style="width:30%">         
+        <div id="tablas" class="center-block">
+         <table border="1" style="width:30%" class="table table-hover">         
              <thead>
                  <tr>
                      <th>Cedula</th>
@@ -90,7 +90,7 @@
             %>    
             <tr>
                 <td id="cedula"   align="left"><%= cedula%></td>
-                <td id="persona"   width="35"  height="35"  align="left"><%= personaTemp.getNombre()%></td>
+                <td id="persona"  align="left"><%= personaTemp.getNombre()%></td>
                  
                 <td id="imagen"  style="width: 25px; text-align: center;">
                      <a href="VerImagen?cedula=<%= personaTemp.getCedula()%>">
@@ -113,7 +113,7 @@
             </tr>
             </tbody>  
          </table>
-         
+        </div>
            
      
          <br>
