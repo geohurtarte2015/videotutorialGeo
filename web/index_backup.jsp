@@ -32,38 +32,48 @@
         </ul>
         
         <div class="container">
-        <form class="form-horizontal" action="Ingreso" method="post" enctype="multipart/form-data">
+        <form action="Ingreso" method="post" enctype="multipart/form-data">
+        <table class="table" border="1">
+               <tr bgcolor="#2E237C" style="color: white; font-weight: bold;">
+                <td colspan="2" align="center">
+                    <h1>Ingresar a la base de datos</h1>
+                </td>   
+                
+            </tr>
+          
+            <tr>
+                <td>Cedula</td>
+                <td colspan="2" align="left">
+                    <input type="text" value="" name="cedula">
+                </td>   
+                
+            </tr>
         
-            <div class="form-group">
-                <label for="ejemplo_email_3" class="col-lg-2 control-label">Cedula</label>
-                <div class="col-xs-3"> 
-                    <input type="text" class="form-control"  value="" name="cedula">
-                </div>
-            </div>        
-        
-            <div class="form-group">
-                <label for="ejemplo_email_3" class="col-lg-2 control-label">Nombre</label>
-                <div class="col-xs-3"> 
-                    <input type="text" class="form-control" value="" name="nombre">
-                </div>
-            </div>      
-
-         
-            <div class="form-group">
-                <label for="ejemplo_email_3" class="col-lg-2 control-label">Archivo</label>
-                <div class="col-xs-2"> 
-                        <div class="fileinput fileinput-new" data-provides="fileinput">
-                        <span class="btn btn-default btn-file"><span></span><input type="file" name="archivo" /></span>
-                        </div>
-                </div>
-            </div>            
-
-             <div class="col-lg-offset-2 col-lg-10">
-                 <button type="submit" name="Ingreso" class="btn btn-info" onClick="location.href='index.jsp'"> Ingresar </button>    
-             </div>
-              <%=mensaje%>
-        </form>
+            <tr><td>Nombre</td>
+                <td colspan="2" align="left">
+                    <input type="text" value="" name="nombre">
+                </td>   
+                
+            </tr>
+   
+            <tr><td>Archivo</td>
+                <td colspan="2" align="left"> 
+               <input type="file"  value="" name="archivo" >
+               </td>
+                
+            </tr>
+          
+            <tr><td>Ingresar</td>
+             <td><input type="submit" value="ingreso" name="Ingreso" class="btn btn-info" onClick="location.href='index.jsp'"></td></tr>           
              
+             <tr>
+                    <td colspan="2" align="center"><%=mensaje%></td>
+             </tr>
+             
+            
+                
+        </table>
+        </form>
         <br>
         <br>
         
@@ -71,7 +81,7 @@
         
                   
         <div class="center-block">
-         <table class="table table-hover">         
+         <table border="1" style="width:30%" class="table table-hover">         
              <thead>
                  <tr>
                      <th>Cedula</th>
@@ -87,33 +97,33 @@
             %>    
             <tr>
                 <td id="cedula"   align="left"><%= cedula%></td>
-           
-      
+            </tr>
+            <tr>
                 <td id="persona"  align="left"><%= personaTemp.getNombre()%></td>
-         
-           
+            </tr>
+            <tr>
                 <td id="imagen"  style="width: 25px; text-align: center;">
                      <a href="VerImagen?cedula=<%= personaTemp.getCedula()%>">
                         <img src="img/lupa.png" width="16" height="16"  border="0" /> 
                      </a>    
                  </td>
-         
-           
+            </tr>
+            <tr>
                 <td id="eliminar" style="width: 25px; text-align: center;">
                      <a href="Eliminar?cedula=<%= personaTemp.getCedula()%>">
                         <img src="img/eliminar.png" width="16" height="16"  border="0" />       
                      </a>                            
                 </td>
-          
-            
+            </tr>
+            <tr>
                 <td   id="editar" style="width: 25px; text-align: center;">
                      <a href="Buscar?cedula=<%= personaTemp.getCedula()%>">
                         <img  src="img/pencil.png" width="16" height="16"  border="0" />       
                      </a>                            
                 </td>
-                
+            <%}%>    
             </tr>
-            <%}%>
+            
             </tbody>  
          </table>
         </div>

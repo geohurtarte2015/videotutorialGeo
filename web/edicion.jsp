@@ -18,6 +18,8 @@
         <title>EDICION</title>
     </head>
     <body>
+      
+        
         <form action="Editar" method="post">
             
              <% String nombre=(String)request.getAttribute("nombre");%>
